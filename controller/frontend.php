@@ -14,3 +14,13 @@ function post(){
 
 	require('view/frontend/postView.php');
 }
+
+function addComment($postId, $author, $comments){
+	$affectedLines = postComment($postId, $author, $comments);
+
+	if($affectedLines === false) {
+		die('Impossible d\'ajouter le commentaire');
+	} else {
+		header('location: index.php?action=post&id='. $postId);
+	}
+}
