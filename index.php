@@ -1,7 +1,21 @@
 
 <?php
-require('model.php');
+require('controller.php');
 
-$posts = getPosts();
+if(isset($_GET['action'])) {
+	if($_GET['action'] == 'listPosts') {
+		listPosts();
+	} else if($_GET['action'] == 'post'){
+		if(isset($_GET['id']) AND $_GET['id'] > 0){
+			post();
+		} else {
+		echo "Erreur : aucun identifiant de billet envoyé";
+		}
+	}
+} else {
+	listPosts();
+}
 
-require('indexView.php');
+//$posts = getPosts();
+
+//require('indexView.php');
