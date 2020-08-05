@@ -2,6 +2,7 @@
 <?php
 require('controller/frontend.php');
 
+try{
 if(isset($_GET['action'])) {
 	if($_GET['action'] == 'listPosts') {
 		listPosts();
@@ -9,19 +10,23 @@ if(isset($_GET['action'])) {
 		if(isset($_GET['id']) AND $_GET['id'] > 0){
 			post();
 		} else {
-		echo "Erreur : aucun identifiant de billet envoyé";
+			throw new Exception('Aucun identifiant de billet envoyé');
 		}
 	} else if ($_GET['action'] == 'addComment'){
 		if(isset($_GET['id']) AND $_GET['id'] > 0){
 			if(!empty($_POST['author']) AND !empty($_POST['comment'])){
 				addComment($_GET['id'], $_POST['author'], $_POST['comment']);
 			} else {
-				echo 'Erreur : tous les champs ne sont pas remplis !! ';
+				throw new Exception('Aucun identifiant de billet envoyé');
 			}
 		} else {
-		echo "Erreur : aucun identifiant de billet envoyé";
+		throw new Exception('Aucun identifiant de billet envoyé');
 		}
 	}
 } else {
 	listPosts();
+}
+}
+catch (Exception $e){
+	echo 'Erreur : ' . $e->getMessage();
 }
