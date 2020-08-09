@@ -2,7 +2,9 @@
 
 <?php ob_start(); ?>
 <h1>Mon super blog !!! </h1>
-<p>Derniers billets du blog : </p>		
+<p><a href="index.php?action=signUp">Inscription</a></p>
+<p>Derniers billets du blog : </p>
+
 <?php
 while ($data = $posts->fetch()) {
 ?>
@@ -19,7 +21,9 @@ while ($data = $posts->fetch()) {
 			</br>
 			<em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
 			</p>
+		</br>
 	</div>
+
 	<?php
 	}
 	$posts->closeCursor();

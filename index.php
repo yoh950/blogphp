@@ -22,6 +22,26 @@ if(isset($_GET['action'])) {
 		} else {
 		throw new Exception('Aucun identifiant de billet envoyé');
 		}
+	} else if($_GET['action'] == 'edit'){
+		if(isset($_GET['id']) AND $_GET['id'] > 0 AND isset($_GET['postID']) && $_GET['postID'] > 0){
+			edit($_POST['newComment'], $_GET['id'], $_GET['postID']);
+		}
+
+	} else if($_GET['action'] == 'signUp'){
+		signUp();
+		if(isset($_POST['valid']) AND $_POST['valid']){
+			if(!empty($_POST['pseudo']) AND !empty($_POST['pass']) AND !empty($_POST['password']) AND !empty($_POST['mail'])){
+				if($_POST['pass'] == $_POST['password']){
+					addUser($_POST['pseudo'], $_POST['pass'], $_POST['mail']);
+				} else {
+					throw new Exception("Vos mots de passe ne sont pas identiques !!");
+					
+				}
+				
+			} else {
+				throw new Exception("Veuillez remplir tous les champs svp");
+			}
+		}
 	}
 } else {
 	listPosts();

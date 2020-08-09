@@ -1,18 +1,21 @@
 <?php 
-function getPosts(){
-	$db = dbConnect();
-	$req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 5');
-	return $req;
-}
 
-function getPost($postId){
-	$db = dbConnect();
-	$req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts Where id= ?');
-	$req->execute(array($postId));
-	$post = $req->fetch();
+class PostManager {
 
-	return $post;
-}
+	public function getPosts(){
+		$db = this->dbConnect();
+		$req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 5');
+		return $req;
+	}
+
+	public function getPost($postId){
+		$db = this->dbConnect();
+		$req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts Where id= ?');
+		$req->execute(array($postId));
+		$post = $req->fetch();
+
+		return $post;
+	}
 
 function getComments($postId){
 	$db = dbConnect();
@@ -31,7 +34,7 @@ function postComment($postId, $author, $comment){
 
 }
 
-function dbConnect(){
-		$db = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-		return $db;
-		}
+	private function dbConnect(){
+			$db = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+			return $db;
+			}

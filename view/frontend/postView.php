@@ -1,7 +1,7 @@
 <?php $title = htmlspecialchars($post['title']); ?>
 
 <?php ob_start(); ?>
-	<h1>Mon super blog</h1>
+	<h1>Mon super blog !</h1>
 	<a href="index.php"> Retour a la liste des billets</a>
 	<div class="news">
 		<h3>
@@ -31,11 +31,11 @@
 		while ($comment = $comments->fetch())
 		{
 		?>
-			<p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
+			<p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?><a href="index.php?action=edit&amp;id=<?= $comment['id'] ?>"> (modifier)</a></p>
 			<p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
 		
 		<?php
 		}
 		?>		
 <?php $content = ob_get_clean(); ?>
-<?php require('template.php'); ?>s
+<?php require('template.php'); ?>
