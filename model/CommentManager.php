@@ -5,7 +5,7 @@ class CommentManager extends Manager{
 
 	public function getComments($postId){
 	$db = $this->dbConnect();
-	$comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+	$comments = $db->prepare('SELECT user.id, user.pseudo, user.mail, comments.id, comments.author_id, comments.post_id, comments.comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments INNER JOIN user ON user.id = comments.author_id WHERE post_id = ? ORDER BY comment_date DESC');
 	$comments->execute(array($postId));
 
 	return $comments;
@@ -17,14 +17,6 @@ class CommentManager extends Manager{
 		$affectedLines = $comments->execute(array($postId, $author, $comment));
 
 		return $affectedLines;
-	}
-
-	public function editComment($id){
-		$db = $this->dbConnect();
-		$newComment = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE id = ?');
-		$newComment->execute(array($id));
-
-		return $newComment;
 	}
 
 }

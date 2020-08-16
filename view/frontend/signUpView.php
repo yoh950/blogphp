@@ -5,7 +5,7 @@
 	<a href="index.php"> Retour</a>
 	<div class="news">
 		<h3>INSCRIPTION</h3>
-		<form action="" method="post">
+		<form action="index.php?action=signUpCheck" method="post">
 				<p><label for="pseudo"> Pseudo : <input type="text" id="pseudo" name="pseudo"></label></br>
 				<label for="pass"> Mot de passe : <input type="password" id="pass" name="pass"></label></br>
 				<label for="password"> Mot de passe : <input type="password" id="password" name="password"></label></br>
