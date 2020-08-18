@@ -1,7 +1,7 @@
 <?php 
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
-require_once('model/SignUpManager.php');
+require_once('model/UserManager.php');
 
 
 function listPosts(){
@@ -59,8 +59,6 @@ function connected($pseudo, $pass){
 		$_SESSION['admin'] = $user_info['admin'];
 		//var_dump($_SESSION);
 		echo "vous etes connecté " .$user_info['pseudo']. " bravo!!";
-		var_dump($_POST);
-		var_dump($_SESSION);
 
 		
 
@@ -72,4 +70,13 @@ function connected($pseudo, $pass){
 function disconnect(){
 	$_SESSION = array();
 	session_destroy();
+}
+function signal(){
+	$commentManager = new CommentManager();
+	$req_comment = $commentManager->signaled($_GET['id']);
+	require('view/frontend/postView.php');
+	
+	var_dump($_SESSION);
+
+
 }

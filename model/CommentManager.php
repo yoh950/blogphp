@@ -19,4 +19,11 @@ class CommentManager extends Manager{
 		return $affectedLines;
 	}
 
+	public function signaled($id){
+		$db = $this->dbConnect();
+		$req_comment = $db->prepare('UPDATE comments SET signaled= \'1\' WHERE id = ?');
+		$comment_signal = $req_comment->execute(array($id));
+
+		return $comment_signal;
+	}
 }

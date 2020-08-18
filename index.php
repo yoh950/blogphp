@@ -56,6 +56,8 @@ try{
 		} else if ($_GET['action'] == 'disconnect'){
 			disconnect();
 			listPosts();
+		} elseif ($_GET['action'] == 'signal'){
+			signal($_GET['id']);
 		}
 	} else {
 		listPosts();

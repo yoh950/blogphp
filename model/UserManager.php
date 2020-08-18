@@ -3,7 +3,7 @@ require_once('model/Manager.php');
 
 class SignUpManager extends Manager{
 
-	public function newUsers($pseudo, $pass, $mail){
+	public function newUsers($pseudo, $pass, $mail){ 
 		$db = $this->dbConnect();
 		$req_user = $db->prepare('SELECT * FROM user WHERE pseudo = ?');
 		$req_user->execute(array($pseudo));
