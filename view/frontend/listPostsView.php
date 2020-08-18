@@ -2,13 +2,36 @@
 
 <?php ob_start(); ?>
 <h1>Mon super blog !!! </h1>
-<p><a href="index.php?action=signUp">Inscription</a></p>
-<p><a href="index.php?action=connect">Connexion</a></p>
-<p>Derniers billets du blog : </p>
 
+<?php 
+	if(isset($_SESSION['pseudo'])){
+	?>
+	<p><a href="index.php?action=disconnect">Deconnexion</a></p>
+	<?php 
+	if($_SESSION['admin'] == 1){
+	?>
+	<p><a href="index.php?action=admin">Admin</a></p>
+	<?php
+	}
+	?>
+	
+
+	<h2>Bonjour <?= $_SESSION['pseudo']  ?>	</h2>
+	<?php
+	} else {
+	?>
+	<p><a href="index.php?action=signUp">Inscription</a></p>
+	<p><a href="index.php?action=connect">Connexion</a></p>
+	<?php
+
+	}
+	?>
+<p>Derniers billets du blog : </p>
 <?php
 while ($data = $posts->fetch()) {
 ?>
+
+
 	<div class= "news">
 		<h3> 
 			<?= htmlspecialchars($data['title']); ?>

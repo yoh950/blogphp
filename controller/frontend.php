@@ -1,15 +1,15 @@
 <?php 
-require_once('model/sessionManager.php');
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/SignUpManager.php');
-require_once('model/ConnectManager.php');
+
 
 function listPosts(){
 	$postManager = new PostManager();
 	$posts = $postManager->getPosts();
 	
 	require('view/frontend/listPostsView.php');
+	
 }
 
 function post(){
@@ -19,8 +19,7 @@ function post(){
 	$post = $postManager->getPost($_GET['id']);
 	$comments = $commentManager->getComments($_GET['id']);
 	if(isset($_SESSION['pseudo']) AND $_SESSION['pseudo']){
-		echo "vous etes connecté !! ";
-		var_dump($_SESSION['pseudo']);
+
 	}
 	require('view/frontend/postView.php');
 }
@@ -51,19 +50,26 @@ function signUpCheck($pseudo, $pass, $mail){
 function connect(){
 	require('view/frontend/connectView.php');
 }
-function connected($pseudo){
+function connected($pseudo, $pass){
 	$connectManager = new ConnectManager();
 	$user_info = $connectManager->connected($pseudo);
-	if(password_verify($_POST['pass'], $user_info['pass'])){
-		echo "vous etes connecté " .$user_info['pseudo']. " bravo!!";
+	if(password_verify($pass, $user_info['pass'])){
 		$_SESSION['id'] = $user_info['id'];
 		$_SESSION['pseudo'] = $user_info['pseudo'];
 		$_SESSION['admin'] = $user_info['admin'];
-		//header('location: index.php');
+		//var_dump($_SESSION);
+		echo "vous etes connecté " .$user_info['pseudo']. " bravo!!";
+		var_dump($_POST);
+		var_dump($_SESSION);
+
+		
 
 	} else {
-		echo "Come on!!!";
-		var_dump(password_verify($_POST['pass'], $user_info['pass']));
+		echo "Votre idendifiant ou mot de passe sont incorrect!!!";
 	}
 	
+}
+function disconnect(){
+	$_SESSION = array();
+	session_destroy();
 }
