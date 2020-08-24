@@ -1,30 +1,32 @@
 <?php $title = htmlspecialchars($post['title']); ?>
 
 <?php ob_start(); ?>
-	<h1>Mon super blog !</h1>
-	<a href="index.php"> Retour a la liste des billets</a>
+
+	<?php $menu =
+	'<a class="btn btn-danger" href="index.php"> Retour a la liste des billets</a>'
+	?>
 	<div class="news">
 		<h3>
 			<?= htmlspecialchars($post['title']) ?>
 			<em> le <?= $post['creation_date_fr'] ?></em>
 		</h3>
 		<p>
-			<?= htmlspecialchars($post['content']) ?>		
+			<?= html_entity_decode($post['content']) ?>		
 		</p>
 		</div>
 	
 		<h2>Commentaires</h2>
 	<form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
     	<div>
-	        <label for="author">Auteur</label><br />
-	        <input type="text" id="author" name="author" value="<?= $_SESSION['pseudo'] ?>" />
+	        <label for="author_id">Auteur</label><br />
+	        <input type="text" id="author_id" name="author_id" value="<?=$_SESSION['id']?>" />
 	    </div>
 	    <div>
 	        <label for="comment">Commentaire</label><br />
 	        <textarea id="comment" name="comment"></textarea>
 	    </div>
 	    <div>
-	        <input type="submit" />
+	        <input type="submit" class="btn btn-primary" />
 	    </div>
 	</form>
 		<?php

@@ -24,12 +24,9 @@ function post(){
 	require('view/frontend/postView.php');
 }
 
-function addComment($postId, $author, $comments){
+function addComment($postId, $author_id, $comments){
 	$commentManager = new CommentManager();
-
-
-	$affectedLines = $commentManager->postComment($postId, $author, $comments);
-
+	$affectedLines = $commentManager->postComment($postId, $author_id, $comments);
 	if($affectedLines === false) {
 		throw new Exception('Impossible d\'ajouter le commentaire !');
 	} else {
@@ -57,7 +54,6 @@ function connected($pseudo, $pass){
 		$_SESSION['id'] = $user_info['id'];
 		$_SESSION['pseudo'] = $user_info['pseudo'];
 		$_SESSION['admin'] = $user_info['admin'];
-		//var_dump($_SESSION);
 		echo "vous etes connecté " .$user_info['pseudo']. " bravo!!";
 
 		
@@ -75,8 +71,19 @@ function signal(){
 	$commentManager = new CommentManager();
 	$req_comment = $commentManager->signaled($_GET['id']);
 	require('view/frontend/postView.php');
-	
-	var_dump($_SESSION);
-
-
+}
+function adminMenu(){
+	require('view/frontend/adminView.php');
+}
+function newPost(){
+	require('view/frontend/createPostView.php');
+}
+function createPost($title, $content){
+	$postManager = new PostManager();
+	$postedNew = $postManager->newPost($title, $content);
+	if($postedNew === false) {
+		throw new Exception('Impossible d\'ajouter le commentaire !');
+	} else {
+		header('location: index.php');
+	}
 }
