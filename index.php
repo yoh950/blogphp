@@ -19,8 +19,9 @@ try{
 			}
 		} else if ($_GET['action'] == 'addComment'){
 			if(isset($_GET['id']) AND $_GET['id'] > 0){
-				if(!empty($_POST['author_id']) AND !empty($_POST['comment'])){
-					addComment($_GET['id'], $_POST['author_id'], $_POST['comment']);
+				if(!empty($_POST['comment'])){
+					//die(var_dump($_GET['id'], $_POST['author_id'], $_POST['comment']));
+					addComment($_GET['id'], $_SESSION['id'], $_POST['comment']);
 				} else {
 					throw new Exception('Aucun identifiant de billet envoyé !!!');
 				}
@@ -44,7 +45,6 @@ try{
 		} else if($_GET['action'] == 'connect'){
 			connect();
 		} else if($_GET['action'] == 'connected'){
-			//connect();
 			if(isset($_POST['validation'])){
 				if(!empty($_POST['pseudo']) AND !empty($_POST['pass'])){
 					connected($_POST['pseudo'], $_POST['pass']);
@@ -64,8 +64,16 @@ try{
 			}
 		} else if($_GET['action'] == 'new'){
 			newPost();
-		} elseif ($_GET['action'] == 'create') {
+		} else if($_GET['action'] == 'create') {
 			createPost($_POST['title'], $_POST['content']);
+		} else if($_GET['action'] == 'edit') {
+			changePost();
+		} else if($_GET['action'] == 'change'){
+			if(isset($_GET['id']) AND $_GET['id'] > 0){
+				post();
+			}
+		} else if($_GET['action'] == 'changedPost'){
+			
 		}
 	} else {
 		listPosts();

@@ -26,7 +26,7 @@ function post(){
 
 function addComment($postId, $author_id, $comments){
 	$commentManager = new CommentManager();
-	$affectedLines = $commentManager->postComment($postId, $author_id, $comments);
+	$affectedLines = $commentManager->postComment($postId, $_SESSION['id'], $comments);
 	if($affectedLines === false) {
 		throw new Exception('Impossible d\'ajouter le commentaire !');
 	} else {
@@ -54,10 +54,6 @@ function connected($pseudo, $pass){
 		$_SESSION['id'] = $user_info['id'];
 		$_SESSION['pseudo'] = $user_info['pseudo'];
 		$_SESSION['admin'] = $user_info['admin'];
-		echo "vous etes connecté " .$user_info['pseudo']. " bravo!!";
-
-		
-
 	} else {
 		echo "Votre idendifiant ou mot de passe sont incorrect!!!";
 	}
@@ -70,7 +66,6 @@ function disconnect(){
 function signal(){
 	$commentManager = new CommentManager();
 	$req_comment = $commentManager->signaled($_GET['id']);
-	require('view/frontend/postView.php');
 }
 function adminMenu(){
 	require('view/frontend/adminView.php');
@@ -87,3 +82,21 @@ function createPost($title, $content){
 		header('location: index.php');
 	}
 }
+function changePost(){
+	$postManager = new PostManager();
+	$posts = $postManager->getPosts();
+	require('view/frontend/changePostView.php');
+}
+function changedPost(){
+	$postManager = new PostManager();
+	$post = $postManager->getPost($_GET['id']);
+	require('view/frontend/editView.php');
+}
+
+
+
+
+
+
+
+

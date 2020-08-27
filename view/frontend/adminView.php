@@ -17,7 +17,7 @@
 			<div class="col col-md-4">
 				<div class="card">
 					<div class="card-body btn btn-light">
-						<h4 class="card-title">Modification de contenu</h4>
+						<a href="index.php?action=edit" class="card-title stretched-link">Modification de contenu</a>
 					</div>
 				</div>
 			</div>

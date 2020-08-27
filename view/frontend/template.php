@@ -9,7 +9,10 @@
         <script src="https://cdn.tiny.cloud/1/bapu90w3nfclp0ubtp4o751mprbglbkha0xa3d02m5ccrs7y/tinymce/5/tinymce.min.js" referrerpolicy="origin"/></script>
         <script>
             tinymce.init({
-            selector: '#content'
+                selector: '#content',
+                language: 'fr_FR',
+                elementpath: false, 
+                menubar: false
             });
         </script>
     </head>
