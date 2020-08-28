@@ -72,8 +72,15 @@ try{
 			if(isset($_GET['id']) AND $_GET['id'] > 0){
 				post();
 			}
-		} else if($_GET['action'] == 'changedPost'){
+		} else if($_GET['action'] == 'changedform'){
+			if(isset($_GET['id']) AND $_GET['id'] > 0){
+				changedform($_GET['id']);
+			}
 			
+		} else if($_GET['action'] == 'edited'){
+			//die(var_dump($_GET['id'], $_POST['newTitle']));
+			editedPost($_POST['newTitle'], $_POST['editNewPost'], $_GET['id']);
+			changePost();
 		}
 	} else {
 		listPosts();

@@ -87,10 +87,14 @@ function changePost(){
 	$posts = $postManager->getPosts();
 	require('view/frontend/changePostView.php');
 }
-function changedPost(){
+function changedform(){
 	$postManager = new PostManager();
 	$post = $postManager->getPost($_GET['id']);
 	require('view/frontend/editView.php');
+}
+function editedPost($title, $content, $id){
+	$postManager = new PostManager();
+	$edit = $postManager->editPost($title, $content, $id);
 }
 
 
