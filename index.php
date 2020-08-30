@@ -58,6 +58,7 @@ try{
 			listPosts();
 		} else if ($_GET['action'] == 'signal'){
 			signal($_GET['id']);
+			listPosts();
 		} else if ($_GET['action'] == 'admin'){
 			if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
 			adminMenu();
@@ -81,6 +82,10 @@ try{
 			//die(var_dump($_GET['id'], $_POST['newTitle']));
 			editedPost($_POST['newTitle'], $_POST['editNewPost'], $_GET['id']);
 			changePost();
+		} else if ($_GET['action'] == 'deletePost') {
+			deletePost();
+		} else if ($_GET['action'] == 'deleted'){
+			deletedPost($_GET['id']);
 		}
 	} else {
 		listPosts();

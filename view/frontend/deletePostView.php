@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 <?php $menu =
-		'<a class="btn btn-danger" href="index.php?action=admin">Retour</a>'
+		'<a class="btn btn-danger" href="index.php">Retour</a>'
 	?>
 	<h3>Modification</h3>
 	<p>Derniers billets du blog : </p>
@@ -21,7 +21,7 @@ while ($data = $posts->fetch()) {
 		html_entity_decode($data['content']);
 		?>
 		</p>
-		<a href="index.php?action=changedform&amp;id=<?= $data['id']?>">modifier</a>
+		<a class="btn btn-danger" href="index.php?action=deleted&amp;id=<?= $data['id']?>">supprimer</a>
 	</div>
 <?php 
 }

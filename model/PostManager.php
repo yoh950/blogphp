@@ -29,4 +29,10 @@ class PostManager extends Manager {
 		$editedPost = $edit->execute(array($_POST['newTitle'], $_POST['editNewPost'], $_GET['id']));
 		return $editedPost;
 	}
+	public function deleted($id){
+		$db = $this->dbConnect();
+		$deletedPost = $db->prepare('DELETE FROM posts WHERE id= ?');
+		$del = $deletedPost->execute(array($_GET['id']));
+		return $del;
+	}
 }

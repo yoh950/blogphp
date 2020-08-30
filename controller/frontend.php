@@ -68,6 +68,8 @@ function signal(){
 	$req_comment = $commentManager->signaled($_GET['id']);
 }
 function adminMenu(){
+	$commentManager = new CommentManager();
+	$req_signaled = $commentManager->commentSignaled();
 	require('view/frontend/adminView.php');
 }
 function newPost(){
@@ -95,6 +97,15 @@ function changedform(){
 function editedPost($title, $content, $id){
 	$postManager = new PostManager();
 	$edit = $postManager->editPost($title, $content, $id);
+}
+function deletePost(){
+	$postManager = new PostManager();
+	$posts = $postManager->getPosts();
+	require('view/frontend/deletePostView.php');
+}
+function deletedPost($id){
+	$postManager = new PostManager();
+	$del = $postManager->deleted($_GET['id']);
 }
 
 

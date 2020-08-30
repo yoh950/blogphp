@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 <?php $menu =
-	'<a class="btn btn-danger" href="index.php">Retour a la liste des billets</a>'
+	'<a class="btn btn-danger" href="index.php?action=admin">Retour a la liste des billets</a>'
 ?>
 	<h3>Modification</h3>
 	<form action="index.php?action=edited&amp;id=<?= $_GET['id'];?>" method="post">
@@ -10,7 +10,7 @@
 			<label for="newTitle">Nouveau titre</label>
 			<input type="text" class="form-control" name="newTitle" value= <?= $post['title']; ?>>
 			<label for="editNewPost"> Nouvelle article :</label>
-			<textarea type="textarea" class="form-control" cols="30" rows="10" name="editNewPost" value=<?= html_entity_decode($post['content']);?> ></textarea>
+			<textarea type="textarea" class="form-control" cols="30" rows="10" name="editNewPost" value=<?= html_entity_decode($post['content']);?></textarea>
 			<button type="submit" class="btn btn-primary">Publier</button>
 		</div>
 	</form>

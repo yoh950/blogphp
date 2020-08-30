@@ -25,4 +25,9 @@ class CommentManager extends Manager{
 
 		return $comment_signal;
 	}
+	public function commentSignaled(){
+		$db = $this->dbConnect();
+		$req_signaled = $db->query('SELECT * FROM comments WHERE signaled = 1');
+		return $req_signaled;
+	}
 }

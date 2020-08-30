@@ -14,21 +14,23 @@
 			<?= html_entity_decode($post['content']) ?>		
 		</p>
 		</div>
-	<?php if(isset($_SESSION['id']) && $_SESSION['id'] > 0){
-		echo '<h2>Commentaires de personne</h2>';
+	<?php if(isset($_SESSION['id']) && $_SESSION['id'] > 0)
+	{
 	?>
+	<form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+	<div>
+	    <label for="comment">Commentaire</label><br />
+	    <textarea id="comment" name="comment"></textarea>
+	</div>
+	<div>
+	    <input type="submit" class="btn btn-primary" />
+	</div>
+	</form>
+
 	<?php
 	}
 	?>
-	<form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
-	    <div>
-	        <label for="comment">Commentaire</label><br />
-	        <textarea id="comment" name="comment"></textarea>
-	    </div>
-	    <div>
-	        <input type="submit" class="btn btn-primary" />
-	    </div>
-	</form>
+	
 	
 		<?php
 		while ($comment = $comments->fetch())
