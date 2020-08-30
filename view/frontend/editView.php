@@ -10,7 +10,7 @@
 			<label for="newTitle">Nouveau titre</label>
 			<input type="text" class="form-control" name="newTitle" value= <?= $post['title']; ?>>
 			<label for="editNewPost"> Nouvelle article :</label>
-			<textarea type="textarea" class="form-control" cols="30" rows="10" name="editNewPost" value=<?= html_entity_decode($post['content']);?></textarea>
+			<textarea type="textarea" id="content" class="form-control" cols="30" rows="10" name="editNewPost" value=<?= html_entity_decode($post['content']);?></textarea>
 			<button type="submit" class="btn btn-primary">Publier</button>
 		</div>
 	</form>

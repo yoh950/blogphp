@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 <?php $menu =
-		'<a class="btn btn-danger" href="index.php">Retour</a>'
+		'<a class="btn btn-danger" href="index.php?action=admin">Retour</a>'
 	?>
 	<h3>Modification</h3>
 	<p>Derniers billets du blog : </p>

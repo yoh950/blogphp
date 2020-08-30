@@ -86,6 +86,7 @@ try{
 			deletePost();
 		} else if ($_GET['action'] == 'deleted'){
 			deletedPost($_GET['id']);
+			deletePost();
 		}
 	} else {
 		listPosts();

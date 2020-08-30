@@ -10,7 +10,7 @@
 			<label for="title">Titre :</label>
 			<input type="text" class="form-control" name="title" id="title" placeholder="Titre">
 			<label for="content">Contenu :</label>
-			<textarea id="content" name="content" cols="30" rows="10"> </textarea>
+			<textarea id="content" name="content" cols="30" rows="10"></textarea>
 		</div>
 		<button type="submit" class="btn btn-primary">Publier</button>
 	</form>
