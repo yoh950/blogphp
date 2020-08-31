@@ -79,7 +79,6 @@ try{
 			}
 			
 		} else if($_GET['action'] == 'edited'){
-			//die(var_dump($_GET['id'], $_POST['newTitle']));
 			editedPost($_POST['newTitle'], $_POST['editNewPost'], $_GET['id']);
 			changePost();
 		} else if ($_GET['action'] == 'deletePost') {
@@ -87,6 +86,12 @@ try{
 		} else if ($_GET['action'] == 'deleted'){
 			deletedPost($_GET['id']);
 			deletePost();
+		} else if ($_GET['action'] == 'notSignaled'){
+			notSignaled();
+			adminMenu();
+		} else if ($_GET['action'] == 'deletedComment'){
+			deleteComment($_GET['id']);
+			adminMenu();
 		}
 	} else {
 		listPosts();

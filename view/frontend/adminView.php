@@ -47,8 +47,8 @@ while ($data = $req_signaled->fetch()) {
 		html_entity_decode($data['comment']);
 		?>
 			</br>
-			<em><a class="btn btn-success" href="index.php?action=post&amp;id=<?= $data['id'] ?>">Valider</a></em>
-			<em><a class="btn btn-danger" href="index.php?action=post&amp;id=<?= $data['id'] ?>">Supprimer</a></em>
+			<em><a class="btn btn-success" href="index.php?action=notSignaled&amp;id=<?= $data['id'] ?>">Valider</a></em>
+			<em><a class="btn btn-danger" href="index.php?action=deletedComment&amp;id=<?= $data['id'] ?>">Supprimer</a></em>
 			</p>
 		</br>
 	</div>

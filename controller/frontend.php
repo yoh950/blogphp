@@ -107,7 +107,14 @@ function deletedPost($id){
 	$postManager = new PostManager();
 	$del = $postManager->deleted($_GET['id']);
 }
-
+function notSignaled(){
+	$commentManager = new CommentManager();
+	$req_signal = $commentManager->notSignaled($_GET['id']);
+}
+function deleteComment($id){
+	$commentManager = new CommentManager();
+	$del_comment = $commentManager->deletedComment($_GET['id']);
+}
 
 
 

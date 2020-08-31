@@ -30,4 +30,17 @@ class CommentManager extends Manager{
 		$req_signaled = $db->query('SELECT * FROM comments WHERE signaled = 1');
 		return $req_signaled;
 	}
+	public function notSignaled($id){
+		$db = $this->dbConnect();
+		$req_comment = $db->prepare('UPDATE comments SET signaled= \'0\' WHERE id = ?');
+		$req_signal = $req_comment->execute(array($id));
+
+		return $req_signal;
+	}
+	public function deletedComment($id){
+		$db = $this->dbConnect();
+		$delete_comment = $db->prepare('DELETE FROM comments WHERE id = ?');
+		$del_comment = $delete_comment->execute(array($id));
+		return $del_comment;
+	}
 }
