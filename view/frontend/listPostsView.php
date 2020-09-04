@@ -7,8 +7,8 @@
 		?>
 		<?php 
 		if($_SESSION['admin'] == 1){
-		$menu ='<p><a class="btn btn-danger" href="index.php?action=disconnect">Deconnexion</a></p>
-				<p><a class="btn btn-dark" href="index.php?action=admin">Admin</a></p>'
+		$menu ='<p><a class="btn btn-danger" href="index.php?action=disconnect">Deconnexion</a></p>';
+		$secondMenu='<p><a class="btn btn-dark" href="index.php?action=admin">Admin</a></p>'
 		?>
 		<?php
 		}
@@ -16,8 +16,8 @@
 		<h3>Bonjour <?= $_SESSION['pseudo']  ?></h3>
 		<?php
 		} else {
-		$menu = '<p><a class="btn btn-info" href="index.php?action=signUp">Inscription</a></p>
-				<p><a class="btn btn-secondary" href="index.php?action=connect">Connexion</a></p>'
+		$menu = '<p><a class="btn btn-info" href="index.php?action=signUp">Inscription</a></p>';
+		$secondMenu='<p><a class="btn btn-secondary" href="index.php?action=connect">Connexion</a></p>'
 		?>
 		<?php
 		}
@@ -29,20 +29,23 @@ while ($data = $posts->fetch()) {
 ?>
 
 
-	<div class= "news">
-		<h3> 
-			<?= htmlspecialchars($data['title']); ?>
-			<em>le <?= htmlspecialchars($data['creation_date_fr']); ?> </em>
-		</h3>
-
-		<p>
-		<?=
-		html_entity_decode($data['content']);
-		?>
-			</br>
-			<em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
-			</p>
+	<div class= "card">
+		<div class="card-body md-8">
+			<div class="card-title">
+				<h3>
+					<?= htmlspecialchars($data['title']); ?>
+					<em>le <?= htmlspecialchars($data['creation_date_fr']); ?> </em>
+				</h3>
+			</div>
+			<div class="card-text">
+				<p>
+				<?=html_entity_decode($data['content']);?>
+				</br>
+				<em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
+				</p>
+			</div>
 		</br>
+		</div>
 	</div>
 
 	<?php

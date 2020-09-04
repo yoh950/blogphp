@@ -44,7 +44,7 @@ while ($data = $req_signaled->fetch()) {
 
 		<p>
 		<?=
-		html_entity_decode($data['comment']);
+		htmlspecialchars($data['comment']);
 		?>
 			</br>
 			<em><a class="btn btn-success" href="index.php?action=notSignaled&amp;id=<?= $data['id'] ?>">Valider</a></em>

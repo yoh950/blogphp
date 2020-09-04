@@ -11,7 +11,9 @@
 	<div class="form-group col-4">
 		<p><input type="password" class="form-control" name="pass" placeholder="Entrez votre mot de passe : "></p>
 	</div>
-	<p><input type="submit" class="btn btn-primary" name="validation"></p>
+	<div class="text-center">
+		<p><input type="submit" class="btn btn-primary" name="validation"></p>
+	</div>
 </form>
 
 <?php $content = ob_get_clean(); ?>

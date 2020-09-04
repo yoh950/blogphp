@@ -18,15 +18,20 @@
     </head>
         
     <body>
-    <div class="jumbotron">
-        <div class="container">
+    <div class="jumbotron" style="border-bottom: 10px double; border-top: 5px solid grey; background-color: white">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-10">
-                    <h1>Mon super blog !!! </h1>
+                <div class="col-10 text-center">
+                    <h1>Les lettres de Forteroche!!! </h1>
                 </div>
-                <div class="col-2">
+                <div class="col-1">
                     <?php if(isset($menu)){
                         echo $menu;
+                    } ?>
+                </div>
+                <div class="col-1">
+                    <?php if(isset($secondMenu)){
+                        echo $secondMenu;
                     } ?>
                 </div>
             </div>

@@ -21,7 +21,7 @@ try{
 			if(isset($_GET['id']) AND $_GET['id'] > 0){
 				if(!empty($_POST['comment'])){
 					//die(var_dump($_GET['id'], $_POST['author_id'], $_POST['comment']));
-					addComment($_GET['id'], $_SESSION['id'], $_POST['comment']);
+					addComment($_GET['id'], $_SESSION['id'], htmlspecialchars($_POST['comment']));
 				} else {
 					throw new Exception('Aucun identifiant de billet envoyé !!!');
 				}

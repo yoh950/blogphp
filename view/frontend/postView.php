@@ -36,7 +36,14 @@
 		while ($comment = $comments->fetch())
 		{
 		?>
-			<p><strong><?= htmlspecialchars($comment['pseudo']) ?></strong> le <?= $comment['comment_date_fr'] ?><a href="index.php?action=signal&amp;id=<?= $comment['id'] ?>"> (signaler)</a></p>
+			<p><strong><?= htmlspecialchars($comment['pseudo']) ?></strong> le <?= $comment['comment_date_fr'] ?>
+			<?php if(isset($_SESSION['id']) && $_SESSION['id'] > 0)
+			{
+			?>
+			<a href="index.php?action=signal&amp;id=<?= $comment['id'] ?>"> (signaler)</a></p>
+			<?php
+			}
+			?>
 			<p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
 		
 		<?php
