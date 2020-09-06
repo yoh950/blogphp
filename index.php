@@ -10,6 +10,8 @@ try{
 			listPosts();
 			if(isset($_SESSION['admin']) AND $_SESSION['admin'] == 1){
 				echo "ADMIN";
+			} else {
+				error();
 			}
 		} else if($_GET['action'] == 'post'){
 			if(isset($_GET['id']) AND $_GET['id'] > 0){
@@ -62,6 +64,8 @@ try{
 		} else if ($_GET['action'] == 'admin'){
 			if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
 			adminMenu();
+			} else {
+				error();
 			}
 		} else if($_GET['action'] == 'new'){
 			newPost();

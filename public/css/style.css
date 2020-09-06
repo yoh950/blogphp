@@ -1,4 +1,8 @@
-h3
-{
-    background-color: azure;
+@font-face {
+    font-family: 'designer';
+    src: url(../fonts/DESIGNER.otf);
+}
+h1{
+    font-family: 'designer', 'Arial Black';
+    font-size: 4em;
 }

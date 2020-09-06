@@ -22,7 +22,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-10 text-center">
-                    <h1>Les lettres de Forteroche!!! </h1>
+                    <h1>Les lettres de Forteroche</h1>
                 </div>
                 <div class="col-1">
                     <?php if(isset($menu)){

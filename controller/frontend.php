@@ -115,6 +115,9 @@ function deleteComment($id){
 	$commentManager = new CommentManager();
 	$del_comment = $commentManager->deletedComment($_GET['id']);
 }
+function error(){
+	require('view/frontend/errorView.php');
+}
 
 
 
