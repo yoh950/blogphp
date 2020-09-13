@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-10 text-center">
                     <h1>Les lettres de Forteroche</h1>
-                    <h2>Billet simple pour l'alaska</h2>
+                    <h2>Billet simple pour l'Alaska</h2>
                 </div>
                 <div class="col-1">
                     <?php if(isset($menu)){

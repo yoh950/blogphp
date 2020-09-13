@@ -3,13 +3,13 @@
 <?php ob_start(); ?>
 
 	<?php $menu =
-	'<a class="btn btn-danger" href="index.php"> Retour a la liste des billets</a>'
+	'<a class="btn btn-danger btn-lg" href="index.php"> Retour a l\'accueil</a>'
 	?>
 	<div class="newest">
-		<h3>
+		<h3 class="news">
 			<?= htmlspecialchars($post['title']) ?>
-			<em> le <?= $post['creation_date_fr'] ?></em>
 		</h3>
+		<span class="info"> le <?= $post['creation_date_fr'] ?></span></br>
 		<p>
 			<?= html_entity_decode($post['content']) ?>		
 		</p>
@@ -26,7 +26,7 @@
 	    <input type="submit" class="btn btn-primary" />
 	</div>
 	</form>
-
+	</br>
 	<?php
 	}
 	?>
@@ -36,7 +36,8 @@
 		while ($comment = $comments->fetch())
 		{
 		?>
-			<p><strong><?= htmlspecialchars($comment['pseudo']) ?></strong> le <?= $comment['comment_date_fr'] ?>
+		<div class="com">
+			<p><strong><?= htmlspecialchars($comment['pseudo']) ?> : </strong></br> <span class="viewDate">le <?= $comment['comment_date_fr'] ?></span>
 			<?php if(isset($_SESSION['id']) && $_SESSION['id'] > 0)
 			{
 			?>
@@ -44,8 +45,8 @@
 			<?php
 			}
 			?>
-			<p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-		
+			<p class="viewComment"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+		</div>
 		<?php
 		}
 		?>		

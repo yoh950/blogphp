@@ -16,11 +16,6 @@
 	</div>
 </form>
 
-<form action="" method="post">
-    <input type="text" name="name">
-    <input type="submit" name="valided">
-</form>
-
 
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>

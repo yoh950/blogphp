@@ -12,11 +12,11 @@ while ($data = $posts->fetch()) {
 
 
 	<div class= "newest">
-		<h3> 
+		<h3 class="news"> 
 			<?= htmlspecialchars($data['title']); ?>
-			<em>le <?= htmlspecialchars($data['creation_date_fr']); ?> </em>
 		</h3>
-		<p>
+		<p class="viewDate"><em>le <?= htmlspecialchars($data['creation_date_fr']); ?> </em></p>
+		<p class="viewComment">
 		<?=
 		html_entity_decode($data['content']);
 		?>

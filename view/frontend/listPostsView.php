@@ -13,7 +13,7 @@
 		<?php
 		}
 		?>
-		<h4>Bonjour <?= $_SESSION['pseudo']  ?></h4>
+		<h4>Bonjour <span class="hello"><?= $_SESSION['pseudo']  ?></span></h4>
 		<?php
 		} else {
 		$menu = '<p><a class="btn btn-info btn-sm" href="index.php?action=signUp">Inscription</a></p>';
@@ -22,7 +22,6 @@
 		<?php
 		}
 	?>
-
 <p>Derniers billets du blog : </p>
 <?php
 while ($data = $posts->fetch()) {

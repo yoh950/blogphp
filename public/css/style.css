@@ -22,7 +22,28 @@ p {
     font-family: 'champagnes_limousines';
     font-size: 1.5rem;
 }
-h3 {
+h4 {
+    color: #33adff;
+    text-align: center;
+}
+.hello{
+    font-family: 'designer', 'Arial Black';
+}
+.card{
+    background-color: #e6f2ff;
+    margin-bottom: 10px;
+}
+.card-title{
+    color: white;
+}
+
+.card-title:hover {
+    color: white;
+}
+.newest{
+    background-color: #e6f2ff;
+    border: 1px solid grey;
+    margin-bottom: 5px;
 }
 .news {
     color: blue;
@@ -30,4 +51,18 @@ h3 {
 .info {
     float: right;
     color: grey;
+}
+.viewDate{
+    color: grey;
+    font-size: 1rem;
+}
+.viewComment{
+    margin-left: 50px;
+}
+.com{
+    background-color: #F5F5F5;
+}
+.titleInput{
+    font-family: 'big_noodle_titling';
+    font-size: 2rem;
 }

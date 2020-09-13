@@ -4,8 +4,7 @@
 	<?php $menu =
 		'<a class="btn btn-danger" href="index.php">Retour</a>'
 	?>
-	<div class="news">
-		<h3 id="signup">INSCRIPTION</h3>
+		<h3 class="news" id="signup">INSCRIPTION</h3>
 		<form action="index.php?action=signUpCheck" method="post">
 			<div class="container">
 				<div class="form-row justify-content-center">
@@ -24,10 +23,6 @@
 						<label for="password"> Mot de passe : <input type="password" id="password" name="password"></label></br>
 					</div>
 				</div>
-			
-			
-			
-			</div>
 			</div>
 			<div class="text-center">
 				<input type="submit" class="btn btn-primary btn-lg" name="valid" placeholder="Je m'inscris"></p>
