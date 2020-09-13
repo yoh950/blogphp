@@ -11,7 +11,7 @@ while ($data = $posts->fetch()) {
 ?>
 
 
-	<div class= "news">
+	<div class= "newest">
 		<h3> 
 			<?= htmlspecialchars($data['title']); ?>
 			<em>le <?= htmlspecialchars($data['creation_date_fr']); ?> </em>

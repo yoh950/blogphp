@@ -5,7 +5,7 @@
 	<?php $menu =
 	'<a class="btn btn-danger" href="index.php"> Retour a la liste des billets</a>'
 	?>
-	<div class="news">
+	<div class="newest">
 		<h3>
 			<?= htmlspecialchars($post['title']) ?>
 			<em> le <?= $post['creation_date_fr'] ?></em>

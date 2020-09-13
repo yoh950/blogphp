@@ -5,7 +5,6 @@
         <title><?= $title ?></title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="public/css/style.css" rel="stylesheet" /> 
-        <!--bapu90w3nfclp0ubtp4o751mprbglbkha0xa3d02m5ccrs7y-->
         <script src="https://cdn.tiny.cloud/1/bapu90w3nfclp0ubtp4o751mprbglbkha0xa3d02m5ccrs7y/tinymce/5/tinymce.min.js" referrerpolicy="origin"/></script>
         <script>
             tinymce.init({
@@ -23,6 +22,7 @@
             <div class="row">
                 <div class="col-10 text-center">
                     <h1>Les lettres de Forteroche</h1>
+                    <h2>Billet simple pour l'alaska</h2>
                 </div>
                 <div class="col-1">
                     <?php if(isset($menu)){

@@ -1,17 +1,16 @@
 <?php $title = "Une erreur" ?>
 
 <?php ob_start(); ?>
-<h2>Une Erreur est survenu !!!</h2>
+<h2>Une erreur est survenue !!!</h2>
 <div class="container">
 	<div class="row">
 		<div class="col md-10">
 			<p>Mais comme un grand homme a dit ...</p>
-			<h4>Mais victoires sont des chéques </br> Mes échecs sont des chefs d'oeuvres </h4>
+			<h4>Quelquefois l'échec est nécessaire à l'artiste</h4>
+			<a href="index.php" class="btn btn-danger btn-lg">Retour a l'acceuil</a>
 		</div>
 		<div class="col md-2">
-			<button type="button" class="close btn-danger btn-lg" aria-label="Close">
-  			<span aria-hidden="true">&times;</span>
-			</button>
+			<img src="public/images/caution.jpg" class="img-fluid" alt="erreur">
 		</div>
 	</div>
 </div>

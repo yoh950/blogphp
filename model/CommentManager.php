@@ -27,7 +27,7 @@ class CommentManager extends Manager{
 	}
 	public function commentSignaled(){
 		$db = $this->dbConnect();
-		$req_signaled = $db->query('SELECT * FROM comments WHERE signaled = 1');
+		$req_signaled = $db->query('SELECT user.id, user.pseudo, user.mail, comments.id, comments.author_id, comments.post_id, comments.comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments INNER JOIN user ON user.id = comments.author_id WHERE signaled = 1');
 		return $req_signaled;
 	}
 	public function notSignaled($id){

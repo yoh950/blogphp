@@ -2,7 +2,32 @@
     font-family: 'designer';
     src: url(../fonts/DESIGNER.otf);
 }
-h1{
+@font-face {
+    font-family: 'big_noodle_titling';
+    src: url(../fonts/bignoodletitling/big_noodle_titling_oblique.ttf);
+}
+@font-face {
+    font-family: 'champagnes_limousines';
+    src: url(../fonts/champagne_limousines/champagnes_limousines.ttf);
+}
+h1 {
     font-family: 'designer', 'Arial Black';
     font-size: 4em;
+}
+h2 {
+    font-family: 'big_noodle_titling'; 
+    text-align: center;
+}
+p {
+    font-family: 'champagnes_limousines';
+    font-size: 1.5rem;
+}
+h3 {
+}
+.news {
+    color: blue;
+}
+.info {
+    float: right;
+    color: grey;
 }

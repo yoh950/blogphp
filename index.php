@@ -8,11 +8,6 @@ try{
 	if(isset($_GET['action'])) {
 		if($_GET['action'] == 'listPosts') {
 			listPosts();
-			if(isset($_SESSION['admin']) AND $_SESSION['admin'] == 1){
-				echo "ADMIN";
-			} else {
-				error();
-			}
 		} else if($_GET['action'] == 'post'){
 			if(isset($_GET['id']) AND $_GET['id'] > 0){
 				post();
@@ -22,8 +17,7 @@ try{
 		} else if ($_GET['action'] == 'addComment'){
 			if(isset($_GET['id']) AND $_GET['id'] > 0){
 				if(!empty($_POST['comment'])){
-					//die(var_dump($_GET['id'], $_POST['author_id'], $_POST['comment']));
-					addComment($_GET['id'], $_SESSION['id'], htmlspecialchars($_POST['comment']));
+					addComment($_GET['id'], $_SESSION['id'], $_POST['comment']);
 				} else {
 					throw new Exception('Aucun identifiant de billet envoyé !!!');
 				}
@@ -52,8 +46,10 @@ try{
 					connected($_POST['pseudo'], $_POST['pass']);
 					header('Location: index.php');
 				} else {
-					throw new Exception("Veuillez remplir tous les champs svp");
+				throw new Exception("Veuillez remplir tous les champs svp");
 				}
+			} else {
+				throw new Exception("Veuillez remplir tous les champs svp");
 			}
 		} else if ($_GET['action'] == 'disconnect'){
 			disconnect();
@@ -61,49 +57,50 @@ try{
 		} else if ($_GET['action'] == 'signal'){
 			signal($_GET['id']);
 			listPosts();
-		} else if ($_GET['action'] == 'admin'){
-			if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
-			adminMenu();
-			} else {
-				error();
-			}
-		} else if($_GET['action'] == 'new'){
-			newPost();
-		} else if($_GET['action'] == 'create') {
-			createPost($_POST['title'], $_POST['content']);
-		} else if($_GET['action'] == 'edit') {
-			changePost();
-		} else if($_GET['action'] == 'change'){
-			if(isset($_GET['id']) AND $_GET['id'] > 0){
+		} else if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
+			if($_GET['action'] == 'admin'){
+				adminMenu();
+			} else if($_GET['action'] == 'new'){
+				newPost();
+			} else if($_GET['action'] == 'create') {
+				createPost($_POST['title'], $_POST['content']);
+			} else if($_GET['action'] == 'edit') {
+				changePost();
+			} else if($_GET['action'] == 'change'){
+				if(isset($_GET['id']) AND $_GET['id'] > 0){
 				post();
+				}
+			} else if($_GET['action'] == 'changedform'){
+				if(isset($_GET['id']) AND $_GET['id'] > 0){
+					changedform($_GET['id']);
+				}
+			} else if($_GET['action'] == 'edited'){
+				editedPost($_POST['newTitle'], $_POST['editNewPost'], $_GET['id']);
+				changePost();
+			} else if ($_GET['action'] == 'deletePost') {
+				deletePost();
+			} else if ($_GET['action'] == 'deleted'){
+				deletedPost($_GET['id']);
+				deletePost();
+			} else if ($_GET['action'] == 'notSignaled'){
+				notSignaled();
+				adminMenu();
+			} else if ($_GET['action'] == 'deletedComment'){
+				deleteComment($_GET['id']);
+				adminMenu();
 			}
-		} else if($_GET['action'] == 'changedform'){
-			if(isset($_GET['id']) AND $_GET['id'] > 0){
-				changedform($_GET['id']);
-			}
-			
-		} else if($_GET['action'] == 'edited'){
-			editedPost($_POST['newTitle'], $_POST['editNewPost'], $_GET['id']);
-			changePost();
-		} else if ($_GET['action'] == 'deletePost') {
-			deletePost();
-		} else if ($_GET['action'] == 'deleted'){
-			deletedPost($_GET['id']);
-			deletePost();
-		} else if ($_GET['action'] == 'notSignaled'){
-			notSignaled();
-			adminMenu();
-		} else if ($_GET['action'] == 'deletedComment'){
-			deleteComment($_GET['id']);
-			adminMenu();
-		}
+		} else {
+			throw new Exception();
+		}	
+		
 	} else {
 		listPosts();
 	}
-	
 }
 
 catch (Exception $e){
-		echo 'Erreur : ' . $e->getMessage();
+
+	echo 'Erreur : ' . $e->getMessage();
+	error();
 	}
 

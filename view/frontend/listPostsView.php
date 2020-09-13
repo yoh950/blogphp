@@ -7,13 +7,13 @@
 		?>
 		<?php 
 		if($_SESSION['admin'] == 1){
-		$menu ='<p><a class="btn btn-danger" href="index.php?action=disconnect">Deconnexion</a></p>';
-		$secondMenu='<p><a class="btn btn-dark" href="index.php?action=admin">Admin</a></p>'
+		$menu ='<p><a class="btn btn-dark" href="index.php?action=admin">Admin</a></p>';
+		$secondMenu='<p><a class="btn btn-danger" href="index.php?action=disconnect">Deconnexion</a></p>'
 		?>
 		<?php
 		}
 		?>
-		<h3>Bonjour <?= $_SESSION['pseudo']  ?></h3>
+		<h4>Bonjour <?= $_SESSION['pseudo']  ?></h4>
 		<?php
 		} else {
 		$menu = '<p><a class="btn btn-info btn-sm" href="index.php?action=signUp">Inscription</a></p>';
@@ -34,10 +34,10 @@ while ($data = $posts->fetch()) {
 				<div class= "card">
 					<div class="card-body md-8">
 						<div class="card-title">
-							<h3>
+							<h3 class="news">
 								<?= htmlspecialchars($data['title']); ?>
-								<em>le <?= htmlspecialchars($data['creation_date_fr']); ?> </em>
 							</h3>
+							<span class="info">le <?= htmlspecialchars($data['creation_date_fr']); ?> </em></span>
 						</div>
 						<div class="card-text">
 							<p>

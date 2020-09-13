@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 	<?php $menu = 
-		'<a href="index.php"> Retour</a>'
+		'<a class="btn btn-danger" href="index.php">Retour</a>'
 	?>
 	<h3>Espace administrateur</h3>
 	<div class="container">
@@ -24,7 +24,7 @@
 			<div class="col col-md-4">
 				<div class="card">
 					<div class="card-body btn btn-light">
-						<a href="index.php?action=deletePost">Supprimer</a>
+						<a href="index.php?action=deletePost" class="card-title stretched-link">Supprimer</a>
 					</div>
 				</div>
 			</div>
@@ -36,10 +36,10 @@ while ($data = $req_signaled->fetch()) {
 ?>
 
 
-	<div class= "news">
+	<div class= "newest">
 		<h3> 
-			<?= htmlspecialchars($data['author_id']); ?>
-			<em>le <?= htmlspecialchars($data['comment_date']); ?> </em>
+			<?= htmlspecialchars($data['pseudo']); ?>
+			<em>le <?= htmlspecialchars($data['comment_date_fr']); ?> </em>
 		</h3>
 
 		<p>
