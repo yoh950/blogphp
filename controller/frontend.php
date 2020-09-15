@@ -18,9 +18,6 @@ function post(){
 
 	$post = $postManager->getPost($_GET['id']);
 	$comments = $commentManager->getComments($_GET['id']);
-	if(isset($_SESSION['pseudo']) AND $_SESSION['pseudo']){
-
-	}
 	require('view/frontend/postView.php');
 }
 
@@ -39,7 +36,7 @@ function signUp(){
 }
 
 function signUpCheck($pseudo, $pass, $mail){
-	$signUpManager = new SignUpManager();
+	$signUpManager = new UserManager();
 	$newUser = $signUpManager->newUsers($pseudo, $pass, $mail);
 	header('location: index.php');
 }
@@ -48,7 +45,7 @@ function connect(){
 	require('view/frontend/connectView.php');
 }
 function connected($pseudo, $pass){
-	$connectManager = new ConnectManager();
+	$connectManager = new UserManager();
 	$user_info = $connectManager->connected($pseudo);
 	if(password_verify($pass, $user_info['pass'])){
 		$_SESSION['id'] = $user_info['id'];

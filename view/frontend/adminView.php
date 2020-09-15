@@ -8,7 +8,7 @@
 </br>
 	<div class="container">
 		<div class="row">
-			<div class="col col-md-4">
+			<div class="col-12 col-md-4">
 				<div class="card bg-primary">
 					<div class="card-body btn text-white">
 						<a href="index.php?action=new" class="card-title stretched-link">Creation de nouveau contenu</a>

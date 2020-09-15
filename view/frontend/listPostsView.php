@@ -3,12 +3,12 @@
 <?php ob_start(); ?>
 	<?php 
 		if(isset($_SESSION['pseudo'])){
-		$menu ='<p><a class="btn btn-danger" href="index.php?action=disconnect">Deconnexion</a></p>'
+		$menu ='<p><a class="btn btn-danger" href="index.php?action=disconnect">Déconnexion</a></p>'
 		?>
 		<?php 
 		if($_SESSION['admin'] == 1){
 		$menu ='<p><a class="btn btn-dark" href="index.php?action=admin">Admin</a></p>';
-		$secondMenu='<p><a class="btn btn-danger" href="index.php?action=disconnect">Deconnexion</a></p>'
+		$secondMenu='<p><a class="btn btn-danger" href="index.php?action=disconnect">Déconnexion</a></p>'
 		?>
 		<?php
 		}

@@ -1,7 +1,7 @@
 <?php
 require_once('model/Manager.php');
 
-class SignUpManager extends Manager{
+class UserManager extends Manager{
 
 	public function newUsers($pseudo, $pass, $mail){ 
 		$db = $this->dbConnect();
@@ -14,13 +14,8 @@ class SignUpManager extends Manager{
 			$newUser = $req->execute(array($pseudo, password_hash($pass, PASSWORD_DEFAULT), $mail));
 			return $newUser; 
 		}
-		
-		}
 	}
-
-class ConnectManager extends Manager{
-
-
+		
 	public function connected($pseudo){
 		$db = $this->dbConnect();
 		$req = $db->prepare('SELECT * FROM user WHERE pseudo = ?');

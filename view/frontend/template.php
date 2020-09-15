@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <title><?= $title ?></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="public/css/style.css" rel="stylesheet" /> 
         <script src="https://cdn.tiny.cloud/1/bapu90w3nfclp0ubtp4o751mprbglbkha0xa3d02m5ccrs7y/tinymce/5/tinymce.min.js" referrerpolicy="origin"/></script>
@@ -18,18 +19,18 @@
         
     <body>
     <div class="jumbotron" style="border-bottom: 10px double; border-top: 5px solid grey; background-color: white">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                <div class="col-10 text-center">
+                <div class="col-12 col-lg-10">
                     <h1>Les lettres de Forteroche</h1>
                     <h2>Billet simple pour l'Alaska</h2>
                 </div>
-                <div class="col-1">
+                <div class="col-6 col-lg-1">
                     <?php if(isset($menu)){
                         echo $menu;
                     } ?>
                 </div>
-                <div class="col-1">
+                <div class="col-6 col-lg-1">
                     <?php if(isset($secondMenu)){
                         echo $secondMenu;
                     } ?>

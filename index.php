@@ -19,7 +19,7 @@ try{
 				if(!empty($_POST['comment'])){
 					addComment($_GET['id'], $_SESSION['id'], $_POST['comment']);
 				} else {
-					throw new Exception('Aucun identifiant de billet envoyé !!!');
+					throw new Exception('Veuillez ajouter un commentaire !!!');
 				}
 			} else {
 			throw new Exception('Aucun identifiant de billet envoyé');
