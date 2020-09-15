@@ -5,10 +5,10 @@
 		'<a class="btn btn-danger" href="index.php">Retour</a>'
 	?>
 <form action="index.php?action=connected" method="post">
-	<div class="form-group col-4">
+	<div class="form-group col-lg-4">
 		<p><input type="text" class="form-control" name="pseudo" placeholder="Entrez votre pseudo "></p>
 	</div>
-	<div class="form-group col-4">
+	<div class="form-group col-lg-4">
 		<p><input type="password" class="form-control" name="pass" placeholder="Entrez votre mot de passe : "></p>
 	</div>
 	<div class="text-center">
