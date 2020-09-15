@@ -8,21 +8,21 @@
 </br>
 	<div class="container">
 		<div class="row">
-			<div class="col-12 col-md-4">
+			<div class="col-12 col-lg-4">
 				<div class="card bg-primary">
 					<div class="card-body btn text-white">
 						<a href="index.php?action=new" class="card-title stretched-link">Creation de nouveau contenu</a>
 					</div>
 				</div>
 			</div>
-			<div class="col col-md-4">
+			<div class="col-12 col-lg-4">
 				<div class="card bg-secondary">
 					<div class="card-body btn">
 						<a href="index.php?action=edit" class="card-title stretched-link">Modification de contenu</a>
 					</div>
 				</div>
 			</div>
-			<div class="col col-md-4">
+			<div class="col-12 col-lg-4">
 				<div class="card bg-danger">
 					<div class="card-body btn">
 						<a href="index.php?action=deletePost" class="card-title stretched-link">Supprimer</a>
