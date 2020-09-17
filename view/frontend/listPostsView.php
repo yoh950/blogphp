@@ -22,11 +22,12 @@
 		<?php
 		}
 	?>
-<p>Derniers billets du blog : </p>
+	<div class="container">
+		<p>Derniers billets du blog : </p>
+	</div>
 <?php
 while ($data = $posts->fetch()) {
 ?>
-
 	<div class="container">
 		<div class="row">
 			<div class="col md-10">
@@ -42,7 +43,7 @@ while ($data = $posts->fetch()) {
 							<p>
 							<?=html_entity_decode($data['content']);?>
 							</br>
-							<em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
+							<em><a class="new_com" href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
 							</p>
 						</div>
 					</br>

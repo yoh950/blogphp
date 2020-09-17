@@ -30,7 +30,8 @@ h4 {
     font-family: 'designer', 'Arial Black';
 }
 .card{
-    background-color: #e6f2ff;
+    background-color: #c3c3c3;
+    border-radius: 3.25rem;
     margin-bottom: 10px;
 }
 .card-title{
@@ -42,15 +43,19 @@ h4 {
 }
 .newest{
     background-color: #e6f2ff;
-    border: 1px solid grey;
+    border: 0px solid grey;
     margin-bottom: 5px;
 }
 .news {
-    color: blue;
+    color: dodgerblue;
 }
 .info {
     float: right;
     color: grey;
+}
+.new_com {
+    float: right;
+    color: white;
 }
 .viewDate{
     color: grey;

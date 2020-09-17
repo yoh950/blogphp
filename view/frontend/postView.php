@@ -5,33 +5,34 @@
 	<?php $menu =
 	'<a class="btn btn-danger btn-lg" href="index.php"> Retour a l\'accueil</a>'
 	?>
-	<div class="newest">
-		<h3 class="news">
-			<?= htmlspecialchars($post['title']) ?>
-		</h3>
-		<span class="info"> le <?= $post['creation_date_fr'] ?></span></br>
-		<p>
-			<?= html_entity_decode($post['content']) ?>		
-		</p>
+	<div class="container">
+		<div class="newest">
+			<h3 class="news">
+				<?= htmlspecialchars($post['title']) ?>
+			</h3>
+			<span class="info"> le <?= $post['creation_date_fr'] ?></span></br>
+			<p>
+				<?= html_entity_decode($post['content']) ?>		
+			</p>
+			</div>
+		<?php if(isset($_SESSION['id']) && $_SESSION['id'] > 0)
+		{
+		?>
+		<form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+		<div>
+		    <label for="comment">Commentaire</label><br />
+		    <div class="form-group">
+		    	<textarea class="form-control" id="comment" name="comment"></textarea>
+			</div>
 		</div>
-	<?php if(isset($_SESSION['id']) && $_SESSION['id'] > 0)
-	{
-	?>
-	<form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
-	<div>
-	    <label for="comment">Commentaire</label><br />
-	    <textarea id="comment" name="comment"></textarea>
-	</div>
-	<div>
-	    <input type="submit" class="btn btn-primary" />
-	</div>
-	</form>
+		<div>
+		    <input type="submit" class="btn btn-primary" />
+		</div>
+		</form>
 	</br>
 	<?php
 	}
 	?>
-	
-	
 		<?php
 		while ($comment = $comments->fetch())
 		{
@@ -49,6 +50,7 @@
 		</div>
 		<?php
 		}
-		?>		
+		?>
+</div>		
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>

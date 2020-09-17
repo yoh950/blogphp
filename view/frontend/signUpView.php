@@ -23,9 +23,9 @@
 		}
 	}
 ?>
+<div class="container">
 <h3 class="news" id="signup">INSCRIPTION</h3>
 	<form action="#" method="post">
-		<div class="container">
 			<div class="form-row justify-content-center">
 				<div class="form-group ">
 					<label for="pseudo"> Pseudo : 
@@ -41,7 +41,6 @@
 			<div class="form-group text-center">
 				<label for="password"> Mot de passe : <input type="password" id="password" name="password"></label></br>
 			</div>
-		</div>
 		<div class="text-center">
 			<input type="submit" class="btn btn-primary btn-lg" name="valid" placeholder="Je m'inscris"></p>
 		</div>
