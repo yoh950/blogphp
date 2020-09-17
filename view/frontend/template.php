@@ -21,7 +21,7 @@
     <div class="jumbotron" style="border-bottom: 10px double; border-top: 5px solid grey; background-color: white">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-10">
+                <div class="col-12 col-lg-10 text-center">
                     <h1>Les lettres de Forteroche</h1>
                     <h2>Billet simple pour l'Alaska</h2>
                 </div>

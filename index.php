@@ -28,16 +28,21 @@ try{
 			signUp();
 		} else if($_GET['action'] == 'signUpCheck') {
 			if(isset($_POST['valid']) AND $_POST['valid']){
-				if(!empty($_POST['pseudo']) AND !empty($_POST['pass']) AND !empty($_POST['password']) AND !empty($_POST['mail'])){
-					if($_POST['pass'] == $_POST['password']){
-						signUpCheck($_POST['pseudo'], $_POST['pass'], $_POST['mail']);
+				if(preg_match("#^[a-zA-Z0-9._-]+$#", $_POST['pseudo']) && preg_match("#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['mail'])){
+					if(!empty($_POST['pseudo']) AND !empty($_POST['pass']) AND !empty($_POST['password']) AND !empty($_POST['mail'])){
+						if($_POST['pass'] == $_POST['password']){
+							signUpCheck($_POST['pseudo'], $_POST['pass'], $_POST['mail']);
+						} else {
+							throw new Exception("Vos mots de passe ne sont pas identiques !!");
+						}			
 					} else {
-						throw new Exception("Vos mots de passe ne sont pas identiques !!");
-					}			
+						throw new Exception("Veuillez remplir tous les champs svp");
+					}
 				} else {
-					throw new Exception("Veuillez remplir tous les champs svp");
-				}
+					throw new Exception("Les champs pseudo ou email sont incorrect");
+				}			
 			}
+
 		} else if($_GET['action'] == 'connect'){
 			connect();
 		} else if($_GET['action'] == 'connected'){
